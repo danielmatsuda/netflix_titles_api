@@ -1,0 +1,1 @@
+COPY titles(title_type, title, director, country, release_year) FROM '/home/ubuntu/trimmed_netflix_titles.csv' DELIMITER ',' CSV HEADER FORCE NOT NULL director, country;
