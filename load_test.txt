@@ -1,0 +1,20 @@
+----Summary----
+
+
+Timing
+Mean query speed:     237 ms
+Fastest query speed:  124 ms
+Slowest query speed:  576 ms
+Mean RPS:             30.37 req/sec
+Total time:           59273 ms
+
+Data Transferred
+Mean query:      420 B
+Largest query:   508 B
+Smallest query:  324 B
+Total:           758 kB
+
+Response Codes
+200: 1687 responses (93.72%)
+404: 113 responses (6.28%)
+

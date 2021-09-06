@@ -2,7 +2,7 @@
 
 ## About my project
 
-List of features:
+### List of features:
 - REST API with CRUD functionality and filtering
 - HTTPS (via Caddy/Let's Encrypt)
 - error handling (input validation, server error handling)
@@ -11,11 +11,13 @@ List of features:
 - middleware - rate limiting of global requests, panic recovery, API usage metrics
 - handles context timeouts and request queueing (via Go's sql.DB connection pool)
 
+### Performance:
+I hosted my API on a t2.micro EC2 instance (1 vCPU, 1 GiB of RAM). I load tested with [pewpew](https://github.com/bengadbois/pewpew), and found that the instance could handle 30 concurrent GET requests per second for 89% CPU utilization. There were no timeouts or 500 errors during the load test. My computer sent requests from Hawaii to the instance in Northern Virginia, so there was some latency (plus, my API has no cache).
+
 ## Things I learned
 
 By doing this project, I learned a lot about API development and Go. Because I learned a lot, there are many comments in my code to remind me exactly what each chunk of code is doing.
 
-Things I learned about:
 - easier routing with httprouter
 - querying PostgreSQL in Go (i.e., pq and sql packages)
 - connecting my API to a PostgreSQL database, and doing SQL migrations (migrate package)
@@ -35,7 +37,6 @@ The API's data was taken from [this Kaggle dataset](https://www.kaggle.com/shiva
 
 ## Using the API
 
-My REST API has the following CRUD functionality:
 1. GET a single title by id. (v1/titles/:id)
 2. GET all entries or a filtered set of entries, using query string parameters to filter. (v1/titles)
 3. Create (POST) a single title by providing all fields except for ID. (v1/titles)
